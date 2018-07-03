@@ -1,0 +1,16 @@
+.header {
+    height: 145px;
+}
+
+.titleContainer {
+    height: 80px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+.title {
+    display: inline-block;
+    line-height: 80px;
+    vertical-align: middle;
+    font-size: 2em;
+}
