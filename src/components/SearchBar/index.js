@@ -10,8 +10,7 @@ class SearchBar extends React.Component {
     }
 
     onSendButtonClick = () => {
-        this.props.titlesListStore.setMockData();
-        // this.props.titlesListStore.fetchData();
+        this.props.titlesListStore.fetchData();
     }
 
     render() {

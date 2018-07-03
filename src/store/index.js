@@ -1,4 +1,5 @@
 import {observable, action} from 'mobx';
+import 'babel-polyfill';
 
 class TitleListItemStore {
     key;
@@ -12,14 +13,6 @@ class TitleListItemStore {
     }
 }
 
-const mockTitlesList = [
-    new TitleListItemStore('0', 'title1', 'publicationPlace1'),
-    new TitleListItemStore('1', 'title2', 'publicationPlace2'),
-    new TitleListItemStore('2', 'title3', 'publicationPlace3'),
-    new TitleListItemStore('3', 'title4', 'publicationPlace4'),
-    new TitleListItemStore('4', 'title5', 'publicationPlace5')
-];
-
 class TitlesListStore {
     @observable titlesList = [];
     @observable searchInputValue = '';
@@ -28,12 +21,19 @@ class TitlesListStore {
         this.searchInputValue = value;
     }
 
-    @action setMockData = () => {
-        this.titlesList = mockTitlesList;
+    formatTitle = (title) => {
+        return title.substr(0, 23);
     }
 
-    @action fetchData = () => {
+    formatPublicationPlace = (publicationPlace) => {
+        return publicationPlace.substr(0, 45);
+    }
 
+    @action async fetchData() {
+        const url = 'https://chroniclingamerica.loc.gov/search/titles/results/?terms=' + this.searchInputValue + '&format=json&page=1';
+        let response = await fetch(url);
+        let data = await response.json();
+        this.titlesList = data.items.map(item => new TitleListItemStore(item.id, this.formatTitle(item.title), this.formatPublicationPlace(item.place_of_publication)));
     }
 }
 
