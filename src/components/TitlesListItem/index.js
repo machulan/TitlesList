@@ -8,10 +8,10 @@ class TitlesListItem extends React.Component {
                 <div className={styles.auxiliaryLayer1}></div> 
                 <div className={styles.auxiliaryLayer2}></div>  
                 <div className={styles.titleLayer}>
-                    <span className={styles.title}>Designation</span>
+                    <span className={styles.title}>{this.props.title}</span>
                 </div>          
                 <div className={styles.publicationPlaceLayer}>
-                    <span className={styles.publicationPlace}>Find a co-founder for your startup business</span>
+                    <span className={styles.publicationPlace}>{this.props.publicationPlace}</span>
                 </div>
             </div>
         );
