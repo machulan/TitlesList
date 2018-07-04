@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
-import TitlesListItem from '../TitlesListItem/index';
+import TitlesListItem from '../TitlesListItem';
 
 class TitlesList extends React.Component {
     render() {
