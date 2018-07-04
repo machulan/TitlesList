@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './styles.module.css';
-import Header from '../Header/index';
-import TitlesList from '../TitlesList/index';
-import StickyFooter from '../StickyFooter/index';
+import Header from '../Header';
+import TitlesList from '../TitlesList';
+import StickyFooter from '../StickyFooter';
 
 class App extends React.Component {
     render() {
