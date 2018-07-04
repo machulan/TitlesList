@@ -15,10 +15,12 @@ class SearchBar extends React.Component {
     }
 
     render() {
+        const { titlesListStore } = this.props;
+
         return (
             <div className={styles.search}>
                 <input type="text" placeholder="Search" className={styles.searchInput} onChange={this.onSearchInputChange}/>
-                <button className={styles.sendButton} onClick={this.onSendButtonClick} disabled={this.props.titlesListStore.searchInputValue == ''}>Go</button>
+                <button className={styles.sendButton} onClick={this.onSendButtonClick} disabled={titlesListStore.searchInputValue == ''}>Go</button>
             </div>
         );
     }

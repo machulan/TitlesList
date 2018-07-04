@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
-import SearchBar from '../SearchBar/index';
+import SearchBar from '../SearchBar';
 
 class Header extends React.Component {
     render() {

@@ -1,18 +1,7 @@
 import {observable, action} from 'mobx';
+import TitleListItemStore from './titleListItemStore';
 
-class TitleListItemStore {
-    key;
-    @observable title;
-    @observable publicationPlace;
-
-    constructor(key, title, publicationPlace) {
-        this.key = key;
-        this.title = title;
-        this.publicationPlace = publicationPlace;
-    }
-}
-
-const mockTitlesList = [
+const mockTitles = [    
     new TitleListItemStore('0', 'title1', 'publicationPlace1'),
     new TitleListItemStore('1', 'title2', 'publicationPlace2'),
     new TitleListItemStore('2', 'title3', 'publicationPlace3'),
@@ -21,7 +10,7 @@ const mockTitlesList = [
 ];
 
 class TitlesListStore {
-    @observable titlesList = [];
+    @observable titles = [];
     @observable searchInputValue = '';
 
     @action setSearchInputValue = (value) => {
@@ -29,7 +18,8 @@ class TitlesListStore {
     }
 
     @action setMockData = () => {
-        this.titlesList = mockTitlesList;
+        this.titles.splice(0, this.titles.length);
+        this.titles.push(...mockTitles);
     }
 
     @action fetchData = () => {
