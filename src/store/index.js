@@ -11,10 +11,10 @@ class TitlesListStore {
     }
 
     @action async fetchData() {
-        const url = `https://chroniclingamerica.loc.gov/search/titles/results/?terms=${this.searchInputValue}&format=json&page=1`;
+        const url = `http://localhost:3000/titles?terms=${this.searchInputValue}`;
         let response = await fetch(url);
         let data = await response.json();
-        this.titles = data.items.map(item => new TitleListItemStore(item.id, item.title, item.place_of_publication));
+        this.titles = data.map(item => new TitleListItemStore(item.id, item.title, item.publicationPlace));
     }
 }
 

@@ -9,8 +9,10 @@
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
+        "concurrently": "^3.6.0",
         "css-loader": "^0.28.11",
         "html-webpack-plugin": "^3.2.0",
+        "json-server": "^0.14.0",
         "style-loader": "^0.21.0",
         "styled-components": "^3.3.3",
         "webpack": "^4.14.0",
@@ -31,6 +33,8 @@
     },
     "scripts": {
         "build": "webpack --mode production",
-        "start": "webpack-dev-server --config ./webpack.config.js --open --mode development"
+        "start": "concurrently \"yarn json-server\" \"yarn webpack-dev-server\"",
+        "webpack-dev-server": "webpack-dev-server --config ./webpack.config.js --open --mode development",
+        "json-server": "json-server --watch db.json --port 3000"
     }
 }
