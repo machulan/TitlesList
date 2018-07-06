@@ -1,0 +1,25 @@
+.search {
+    height: 60px;
+    line-height: 60px;
+    background-color: #ddd;
+    margin-top: 5px;
+}
+
+.searchInput {
+    border: none;
+    margin: 0 10px;
+    padding: 0;
+    height: 25px;
+    width: 260px;
+    font-size: 1.2em;
+}
+
+.sendButton {
+    background-color: #905;
+    border: none;
+    height: 25px;
+    width: 75px;
+    color: white;
+    text-align: left;
+    font-size: 1.2em;
+}
