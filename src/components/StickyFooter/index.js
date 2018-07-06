@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { FooterContainer, FooterText } from './styles.module.js';
 
 class StickyFooter extends React.Component {
     render() {
         return (
-            <footer className={styles.footer}>
-                <span className={styles.footerText}>Sticky Footer</span>
-            </footer>
+            <FooterContainer>
+                <FooterText>Sticky Footer</FooterText>
+            </FooterContainer>
         );
     }
 }

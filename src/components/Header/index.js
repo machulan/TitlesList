@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { HeaderContainer, TitleContainer, TitleText } from './styles.module.js';
 import SearchBar from '../SearchBar';
 
 class Header extends React.Component {
     render() {
         return (
-            <header className={styles.header}>
-                <div className={styles.titleContainer}>
-                    <span className={styles.title}>Header</span>
-                </div>
+            <HeaderContainer>
+                <TitleContainer>
+                    <TitleText>Header</TitleText>
+                </TitleContainer>
                 <SearchBar />
-            </header>
+            </HeaderContainer>
         );
     }
 }

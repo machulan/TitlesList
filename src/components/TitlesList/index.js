@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { Content } from './styles.module.js';
 import TitlesListItem from '../TitlesListItem';
 import {observer, inject} from 'mobx-react';
 
@@ -10,14 +10,14 @@ class TitlesList extends React.Component {
         const { titlesListStore } = this.props;
 
         return (
-            <section className={styles.container}>
-                <div className={styles.content}>
+            <section>
+                <Content>
                     {
                         titlesListStore.titles.map(titlesListItemStore => (
                             <TitlesListItem key={titlesListItemStore.key} title={titlesListItemStore.title} publicationPlace={titlesListItemStore.publicationPlace} />
                         ))
                     }
-                </div>
+                </Content>
             </section>
         );  
     }

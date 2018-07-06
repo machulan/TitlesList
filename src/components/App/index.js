@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { Content } from './styles.module.js';
 import Header from '../Header';
 import TitlesList from '../TitlesList';
 import StickyFooter from '../StickyFooter';
@@ -11,11 +11,11 @@ class App extends React.Component {
     render() {
         return (
             <Provider titlesListStore={titlesListStore}>
-                <div className={styles.app}>
-                    <div className={styles.content}>
+                <div>
+                    <Content>
                         <Header />
                         <TitlesList />
-                    </div>
+                    </Content>
                     <StickyFooter />
                 </div>
             </Provider>

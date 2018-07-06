@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css';
+import { SearchBarContainer, SearchInput, SendButton } from './styles.module.js'
 import { observer, inject } from 'mobx-react';
 
 @inject('titlesListStore')
@@ -17,10 +17,10 @@ class SearchBar extends React.Component {
         const { titlesListStore } = this.props;
 
         return (
-            <div className={styles.search}>
-                <input type="text" placeholder="Search" className={styles.searchInput} onChange={this.onSearchInputChange}/>
-                <button className={styles.sendButton} onClick={this.onSendButtonClick} disabled={titlesListStore.searchInputValue == ''}>Go</button>
-            </div>
+            <SearchBarContainer>
+                <SearchInput type="text" placeholder="Search" onChange={this.onSearchInputChange}/>
+                <SendButton onClick={this.onSendButtonClick} disabled={titlesListStore.searchInputValue == ''}>Go</SendButton>
+            </SearchBarContainer>
         );
     }
 }

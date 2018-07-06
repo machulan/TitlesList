@@ -1,4 +1,6 @@
-.row {
+import styled from 'styled-components';
+
+export const Row = styled.div`
     background-color: #555;
     margin-top: 5px;
     position: relative;
@@ -6,9 +8,9 @@
     height: 60px;
     top: 0;
     left: 0;
-}
+`;
 
-.auxiliaryLayer1 {
+export const FirstBackgroundLayer = styled.div`
     position: absolute;
     top: 0;
     left: 20px;
@@ -16,9 +18,9 @@
     height: 100%;
     background-color: #333;
     transform: skew(15deg);
-}
+`;
 
-.auxiliaryLayer2 {
+export const SecondBackgroundLayer = styled.div`
     position: absolute;
     top: 0;
     left: 20px;
@@ -26,18 +28,18 @@
     height: 100%;
     background-color: #ddd;
     transform: skew(20deg);
-}
+`;
 
-.titleLayer {
+export const TitleLayer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
     width: 250px;
     height: 100%;
     background-color: #ddd;
-}
+`;
 
-.publicationPlaceLayer {
+export const PublicationPlaceLayer = styled.div`
     position: absolute;
     top: 25px;
     left: 0;
@@ -45,18 +47,18 @@
     height: 30px;
     background-color: #905;
     color: white;
-}
+`;
 
-.title {
+export const Title = styled.span`
     display: block;
     margin-left: 20px;
     margin-top: 5px;
     font-size: 1.2em;
-}
+`;
 
-.publicationPlace {
+export const PublicationPlace = styled.span`
     display: inline-block;
     line-height: 30px;
     vertical-align: middle;
     margin-left: 20px;
-}
+`;
