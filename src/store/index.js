@@ -1,13 +1,6 @@
 import {observable, action} from 'mobx';
 import TitleListItemStore from './titleListItemStore';
-
-const mockTitles = [    
-    new TitleListItemStore('0', 'title1', 'publicationPlace1'),
-    new TitleListItemStore('1', 'title2', 'publicationPlace2'),
-    new TitleListItemStore('2', 'title3', 'publicationPlace3'),
-    new TitleListItemStore('3', 'title4', 'publicationPlace4'),
-    new TitleListItemStore('4', 'title5', 'publicationPlace5')
-];
+import 'babel-polyfill';
 
 class TitlesListStore {
     @observable titles = [];
@@ -17,13 +10,11 @@ class TitlesListStore {
         this.searchInputValue = value;
     }
 
-    @action setMockData = () => {
-        this.titles.splice(0, this.titles.length);
-        this.titles.push(...mockTitles);
-    }
-
-    @action fetchData = () => {
-
+    @action async fetchData() {
+        const url = `https://chroniclingamerica.loc.gov/search/titles/results/?terms=${this.searchInputValue}&format=json&page=1`;
+        let response = await fetch(url);
+        let data = await response.json();
+        this.titles = data.items.map(item => new TitleListItemStore(item.id, item.title, item.place_of_publication));
     }
 }
 
