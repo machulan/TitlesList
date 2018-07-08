@@ -13,8 +13,8 @@ class TitlesList extends React.Component {
             <section className={styles.container}>
                 <div className={styles.content}>
                     {
-                        titlesListStore.titles.map(titlesListItemStore => (
-                            <TitlesListItem key={titlesListItemStore.key} title={titlesListItemStore.title} publicationPlace={titlesListItemStore.publicationPlace} />
+                        titlesListStore.titles.map(item => (
+                            <TitlesListItem content={item} />
                         ))
                     }
                 </div>
